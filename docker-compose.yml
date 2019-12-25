@@ -1,0 +1,11 @@
+version: '2.2'
+services:
+  samba:
+    build: .
+    ports:
+      - 445:445
+    stdin_open: true
+    restart: unless-stopped
+    volumes:
+      - /home/neecro:/neecro
+      - ./smb.conf:/etc/samba/smb.conf:ro
